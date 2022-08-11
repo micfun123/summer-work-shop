@@ -131,9 +131,10 @@ def categories(type):
                                 item = j["model"]
                                 price = j["price"]
                                 receiptlist.append({"item": item ,"price" : price})
-                                buissnessname = "Michaels part shop"
-                                clientname = name
-                                maker(receiptlist,buissnessname,clientname)
+                    print(receiptlist)
+                    buissnessname = "Michaels part shop"
+                    clientname = name
+                    maker(receiptlist,buissnessname,clientname)
                                 
 
 
@@ -147,7 +148,7 @@ def categories(type):
 def main():
     try:
         print("Welcome to the shop please enter a value to see the selected parts")
-        print(" 1. Show all parts \n 2. Shows all RAM \n 3. Shows all RAM \n 4. Shows all Memory\n 5.For checkout")
+        print(" 1. Show all parts \n 2. Shows all CPU \n 3. Shows all RAM \n 4. Shows all Memory\n 5.For checkout")
         choice = int(input("Please enter a value: "))
         categories(choice)
     except Exception as e:
