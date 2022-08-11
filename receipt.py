@@ -4,23 +4,24 @@ from reportlab.platypus import SimpleDocTemplate, Table, Paragraph, TableStyle
 from reportlab.lib import colors
 from reportlab.lib.pagesizes import A4
 from reportlab.lib.styles import getSampleStyleSheet
-import datetime
+from datetime import datetime
   
  
 
 def maker(receiptlist,buissnessname,clientname):
-	date = datetime.date()
+	date = datetime.today().strftime('%Y-%m-%d')
 	# data which we are going to display as table
 	DATA = [
     		[ "Date" , "Name", "Price (GBP)" ],
 	]
 		
 	for i in receiptlist:
-		price = i["price"] * 1.2
-		DATA.append[date ,i["item"] ,price]
-		total = price + price
+		item = i["item"]
+		price = i["price"]
+		print(item)
+		print(price)
+		DATA.append([date,item,price])
 		
-	DATA.append[ "Total", "", "", total]
 
 		# creating a Base Document Template of page size A4
 	pdf = SimpleDocTemplate( "receipt.pdf" , pagesize = A4 )
@@ -60,5 +61,4 @@ def maker(receiptlist,buissnessname,clientname):
 	# actual pdf putting together all the elements
 	pdf.build([ title , table ])
 
-	
- 
+
