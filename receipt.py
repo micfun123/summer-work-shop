@@ -18,8 +18,6 @@ def maker(receiptlist,buissnessname,clientname):
 	for i in receiptlist:
 		item = i["item"]
 		price = i["price"]
-		print(item)
-		print(price)
 		DATA.append([date,item,price])
 		
 

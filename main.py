@@ -131,10 +131,10 @@ def categories(type):
                                 item = j["model"]
                                 price = j["price"]
                                 receiptlist.append({"item": item ,"price" : price})
-                    print(receiptlist)
                     buissnessname = "Michaels part shop"
                     clientname = name
                     maker(receiptlist,buissnessname,clientname)
+                    print("\n your pdf receipt has been made.")
                                 
 
 
