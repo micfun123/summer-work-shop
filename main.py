@@ -1,3 +1,4 @@
+from receipt import maker
 import json
 import csv
 
@@ -115,12 +116,26 @@ def categories(type):
                             print("ID found")
                             total = total + j["price"]
                 print(f"your total is {total}")
-                check = input("would you like to return to shopping or pay. please type yes for shopping or pay")
+                check = input("would you like to return to shopping or pay. please type yes for shopping or pay  : ")
                 if check == "yes":
                     main()
                 else:
                     name = input("Please ender your name: ")
                     email = input("Please enter your email: ")
+                    with open('receipt.csv', 'w', newline='') as csvfile:
+                        writer = csv.writer(csvfile, dialect='unix')
+
+                    writer.writeheader()
+                    for i in basket:
+                         for j in data:
+                            id = j["id"]
+                            if int(i) == int(id):
+                                item = j["model"]
+                                price = j["price"]
+                                maker(item,price)
+                                
+
+
                         
 
 
