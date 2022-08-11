@@ -1,6 +1,7 @@
 from receipt import maker
 import json
 import csv
+from emailsend import send_mail
 
 with open("shop.json", "r") as readfile:
     data = json.load(readfile)
@@ -135,7 +136,15 @@ def categories(type):
                     clientname = name
                     maker(receiptlist,buissnessname,clientname)
                     print("\n your pdf receipt has been made.")
-                                
+                    print("\n We will attempt to email you the pdf")
+                    try:
+                        send_mail(email)
+                    except Exception as e:
+                        print("No email adress was set up")
+                        print(e)
+
+                    
+
 
 
                         
