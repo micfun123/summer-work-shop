@@ -1,0 +1,1 @@
+[{"id": 1, "model": "p3", "price": 100.0, "type": "CPU", "quantity": 150}, {"id": 2, "model": "p5", "price": 120.0, "type": "CPU", "quantity": 400}, {"id": 3, "model": "p7", "price": 200.0, "type": "CPU", "quantity": 50}, {"id": 4, "model": "16GB", "price": 75.0, "type": "RAM", "quantity": 300}, {"id": 5, "model": "32GB", "price": 150.0, "type": "RAM", "quantity": 155}]
