@@ -8,6 +8,7 @@ with open("shop.json", "r") as readfile:
 basket = []
 
 
+
 def categories(type):
     match type:
         case 1:
@@ -122,17 +123,17 @@ def categories(type):
                 else:
                     name = input("Please ender your name: ")
                     email = input("Please enter your email: ")
-                    with open('receipt.csv', 'w', newline='') as csvfile:
-                        writer = csv.writer(csvfile, dialect='unix')
-
-                    writer.writeheader()
+                    receiptlist = []
                     for i in basket:
                          for j in data:
                             id = j["id"]
                             if int(i) == int(id):
                                 item = j["model"]
                                 price = j["price"]
-                                maker(item,price)
+                                receiptlist.append({"item": item ,"price" : price})
+                                buissnessname = "Michaels part shop"
+                                clientname = name
+                                maker(receiptlist,buissnessname,clientname)
                                 
 
 
