@@ -142,6 +142,15 @@ def categories(type):
                     except Exception as e:
                         print("No email adress was set up")
                         print(e)
+                    for j in basket:
+                        for i in data:
+                            if j == i[id]:
+                                quantity = i["quantity"]
+                                data.append({"id": id, "quantity": int(quantity)})
+                                with open("shop.json", "w") as writefile:
+                                    json.dump(data, writefile)
+                    print("Thank you for shopping with us")
+                                
 
                     
 
