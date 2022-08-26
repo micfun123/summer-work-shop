@@ -208,15 +208,13 @@ def categories(type):
                     print("\n your pdf receipt has been made.")
                     print("\n We will attempt to email you the pdf")
                     try:
-                        for j in basket:
+                        for _id in basket:
                             for i in data:
-                                if j == i['id']:
-                                    #lower quantity amount
-                                    i["quantity"] = i["quantity"] - 1
-                                    data.append(i)
+                                if _id == str(i["id"]):
+                                    i["quantity"] -= 1
                                     with open("shop.json", "w") as writefile:
                                         json.dump(data, writefile)
-            
+
                     except Exception as e:
                         print(e)
                         
