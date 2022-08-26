@@ -4,9 +4,9 @@ from reportlab.platypus import SimpleDocTemplate, Table, Paragraph, TableStyle
 from reportlab.lib import colors
 from reportlab.lib.pagesizes import A4
 from reportlab.lib.styles import getSampleStyleSheet
-from datetime import datetime
+from datetime import datetime , date
   
- 
+today = date.today()
 
 def maker(receiptlist,buissnessname,clientname):
 	date = datetime.today().strftime('%Y-%m-%d')
@@ -35,7 +35,7 @@ def maker(receiptlist,buissnessname,clientname):
 	
 	# creating the paragraph with 
 	# the heading text and passing the styles of it
-	title = Paragraph( buissnessname , title_style )
+	title = Paragraph( f"{buissnessname} Date:{today}" , title_style )
 	
 	# creates a Table Style object and in it,
 	# defines the styles row wise

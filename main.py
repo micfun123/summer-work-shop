@@ -108,8 +108,78 @@ def categories(type):
                 basket.append(choice)
                 print(f"in your basket is \n {basket} ")
                 main()
-
         case 5:
+            for i in data:
+                model = i["model"]
+                price = i["price"]
+                pricewithtax = price * 1.20
+                type = i["type"]
+                id = i["id"]
+                if type == "Screen":
+                    if i["quantity"] < 0:
+                        pass
+                    else:
+                        print(f"{id}: \n")
+                        print(f"The {type} is a {model} at the price of {price}. price with tax {pricewithtax}\n")  
+            print("\n========================================================\n")
+            print("press 0 to go back or type a id to add to basket")
+            choice = input()
+            
+            if choice == "0":
+                main()
+            else:
+                basket.append(choice)
+                print(f"in your basket is \n {basket} ")
+                main()
+
+        case 6:
+            for i in data:
+                model = i["model"]
+                price = i["price"]
+                pricewithtax = price * 1.20
+                type = i["type"]
+                id = i["id"]
+                if type == "Case":
+                    if i["quantity"] < 0:
+                        pass
+                    else:
+                        print(f"{id}: \n")
+                        print(f"The {type} is a {model} at the price of {price}. price with tax {pricewithtax}\n")  
+            print("\n========================================================\n")
+            print("press 0 to go back or type a id to add to basket")
+            choice = input()
+            
+            if choice == "0":
+                main()
+            else:
+                basket.append(choice)
+                print(f"in your basket is \n {basket} ")
+                main()
+
+        case 7:
+            for i in data:
+                model = i["model"]
+                price = i["price"]
+                pricewithtax = price * 1.20
+                type = i["type"]
+                id = i["id"]
+                if type == "USB":
+                    if i["quantity"] < 0:
+                        pass
+                    else:
+                        print(f"{id}: \n")
+                        print(f"The {type} is a {model} at the price of {price}. price with tax {pricewithtax}\n")  
+            print("\n========================================================\n")
+            print("press 0 to go back or type a id to add to basket")
+            choice = input()
+            
+            if choice == "0":
+                main()
+            else:
+                basket.append(choice)
+                print(f"in your basket is \n {basket} ")
+                main()
+        case 8:
                 print("adding your basket up")
                 total = 0
                 for i in basket:
@@ -172,7 +242,7 @@ def categories(type):
 def main():
     try:
         print("Welcome to the shop please enter a value to see the selected parts")
-        print(" 1. Show all parts \n 2. Shows all CPU \n 3. Shows all RAM \n 4. Shows all Memory\n 5.For checkout")
+        print(" 1. Show all parts \n 2. Shows all CPU \n 3. Shows all RAM \n 4. Shows all Memory\n 5. Shows all Screen\n 6. Shows all Case\n 7. Show all USB \n 8. Check out")
         choice = int(input("Please enter a value: "))
         categories(choice)
     except Exception as e:
