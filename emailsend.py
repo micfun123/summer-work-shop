@@ -8,8 +8,6 @@ import os
 import ssl
 import time
 
-fromuser = ""
-PASSWORD = ""
 
 def send_mail(recipient_email):
     pdf = "receipt.pdf"

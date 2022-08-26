@@ -3,6 +3,7 @@ import json
 import csv
 from emailsend import send_mail
 
+
 with open("shop.json", "r") as readfile:
     data = json.load(readfile)
 
@@ -115,7 +116,6 @@ def categories(type):
                     for j in data:
                         id = j["id"]
                         if int(i) == int(id):
-                            print("ID found")
                             total = total + j["price"]
                 print(f"your total is {total}")
                 check = input("would you like to return to shopping or pay. please type yes for shopping or pay  : ")
@@ -138,18 +138,24 @@ def categories(type):
                     print("\n your pdf receipt has been made.")
                     print("\n We will attempt to email you the pdf")
                     try:
-                        send_mail(email)
+                        for j in basket:
+                            for i in data:
+                                if j == i[id]:
+                                    quantity = i["quantity"]
+                                    quantity = quantity - 1
+                                    data.append({"id": id, "model": model, "price": float(price), "type": name, "quantity": int(quantity)})
+                                    with open("shop.json", "w") as writefile:
+                                        json.dump(data, writefile)
                     except Exception as e:
-                        print("No email adress was set up")
                         print(e)
-                    for j in basket:
-                        for i in data:
-                            if j == i[id]:
-                                quantity = i["quantity"]
-                                data.append({"id": id, "quantity": int(quantity)})
-                                with open("shop.json", "w") as writefile:
-                                    json.dump(data, writefile)
+
                     print("Thank you for shopping with us")
+                    try:
+                        send_mail(email)
+                        exit()
+                    except Exception as e:
+                        print(e)
+                        exit()
                                 
 
                     
@@ -171,7 +177,6 @@ def main():
         categories(choice)
     except Exception as e:
         print(e)
-        print("invalid input\n you have been moved to the main menu")
         main()
 
         
