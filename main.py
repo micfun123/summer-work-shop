@@ -1,11 +1,15 @@
+import sqlite3
+
+
+#con = sqlite3.connect('stocks.db')
+#cur = con.cursor()
+#cur.execute('''CREATE TABLE stock(ID int, model text, type text, price int,quantity int)''')
+#con.commit()
+#con.close
+
 from receipt import maker
-import json
 import csv
 from emailsend import send_mail
-
-
-with open("shop.json", "r") as readfile:
-    data = json.load(readfile)
 
 basket = []
 
